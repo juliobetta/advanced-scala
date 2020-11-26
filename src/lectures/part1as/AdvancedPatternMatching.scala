@@ -20,7 +20,8 @@ object AdvancedPatternMatching extends App {
    */
 
   class Person(val name: String, val age: Int)
-
+ 
+  // unapply makes the class compatible with pattern matching.
   object Person {
     def unapply(person: Person): Option[(String, Int)] =
       if (person.age < 21) None
@@ -68,6 +69,7 @@ object AdvancedPatternMatching extends App {
   case class Or[A, B](a: A, b: B)
   val either = Or(2, "two")
   val humanDescription = either match {
+    // syntax sugar for Or(number, string). AWESOME!
     case number Or string => s"$number is written as $string"
   }
   println(humanDescription)
