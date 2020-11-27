@@ -36,8 +36,8 @@ object PartialFunctions extends App {
 
   // lift
   val lifted = aPartialFunction.lift // Int => Option[Int]
-  println(lifted(2))
-  println(lifted(98))
+  println(lifted(2)) // => Some(2)
+  println(lifted(98)) // => None
 
   val pfChain = aPartialFunction.orElse[Int, Int] {
     case 45 => 67
